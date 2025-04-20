@@ -26,6 +26,7 @@ public partial class Loader : Node
 	}
 	public override void _Process(double delta)
 	{
+		if( _scenePath != null){
 		var Progress = new Godot.Collections.Array();
 		var LoaderStatus = ResourceLoader.LoadThreadedGetStatus(_scenePath, Progress);
 		
@@ -41,6 +42,7 @@ public partial class Loader : Node
 		else if(LoaderStatus == ResourceLoader.ThreadLoadStatus.InProgress)
 		{
 			EmitSignal("LoadingProgressUpdatedEventHandler", Progress[0]);
+		}
 		}
 	}
 }
