@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1ax5s5pddsyx"]
+
+[ext_resource type="Script" uid="uid://gagu1ljxtd0t" path="res://Scripts/TitleScreen/TitleScreen.cs" id="1_2br5b"]
+[ext_resource type="Texture2D" uid="uid://b3wkjs5hsc5p0" path="res://Graphics/Title/tree-3094982_1280.jpg" id="1_xsyet"]
+[ext_resource type="FontFile" uid="uid://cxsdfwyre6pgl" path="res://Fonts/alagard_by_pix3m-d6awiwp.ttf" id="2_dnytt"]
+[ext_resource type="Theme" uid="uid://bbxojcch4ph7" path="res://Themes/DefaultTheme.tres" id="3_kyvdy"]
+[ext_resource type="Script" uid="uid://wdj1nceugwjr" path="res://Scripts/TitleScreen/VersionNumber.cs" id="4_bnqst"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kyvdy"]
+font = ExtResource("2_dnytt")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnqst"]
+font = ExtResource("2_dnytt")
+font_color = Color(0.759366, 0, 0.0508875, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2br5b")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xsyet")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Container" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Content/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Legacy Of The Ancient Questor"
+label_settings = SubResource("LabelSettings_kyvdy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="MarginContainer" parent="Content/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container" type="HBoxContainer" parent="Content/Container"]
+layout_mode = 2
+
+[node name="Spacer" type="MarginContainer" parent="Content/Container/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Content/Container/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="New Game" type="Button" parent="Content/Container/Container/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_kyvdy")
+theme_override_font_sizes/font_size = 45
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="Content/Container/Container/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_kyvdy")
+theme_override_font_sizes/font_size = 45
+text = "Load Game"
+
+[node name="Credits" type="Button" parent="Content/Container/Container/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_kyvdy")
+theme_override_font_sizes/font_size = 45
+text = "Credits"
+
+[node name="VersionNumber" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -15.0
+offset_right = 308.0
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Version: "
+label_settings = SubResource("LabelSettings_bnqst")
+vertical_alignment = 1
+script = ExtResource("4_bnqst")
+
+[connection signal="pressed" from="Content/Container/Container/Buttons/New Game" to="." method="OnNewGamePressed"]

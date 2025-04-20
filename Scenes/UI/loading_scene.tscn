@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://ettx3txc1ik2"]
+
+[ext_resource type="Theme" uid="uid://bbxojcch4ph7" path="res://Themes/DefaultTheme.tres" id="1_61sl4"]
+[ext_resource type="Script" uid="uid://c8qadfp7ea6c0" path="res://Scripts/UI/LoadingScene.cs" id="1_227ew"]
+[ext_resource type="Texture2D" uid="uid://eid5aafrtpwm" path="res://Graphics/UI/loading_frame.png" id="2_227ew"]
+[ext_resource type="Texture2D" uid="uid://u86plpgqk3j3" path="res://Graphics/UI/loading_bar.png" id="3_60utb"]
+
+[node name="LoadingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_227ew")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="LoadingLabel" type="Label" parent="CenterContainer/Container"]
+layout_mode = 2
+theme = ExtResource("1_61sl4")
+theme_override_font_sizes/font_size = 35
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="LoadingBar" type="TextureProgressBar" parent="CenterContainer/Container"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_over = ExtResource("2_227ew")
+texture_progress = ExtResource("3_60utb")
