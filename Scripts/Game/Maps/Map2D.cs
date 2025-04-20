@@ -4,7 +4,10 @@ using System;
 [GlobalClass]
 public partial class Map2D : TileMap
 {
-
+	public override void _Ready()
+	{
+		GD.Print(GetTerrainDataForTile(0, 0, 0, (int)Map2D.TerrainDataTypes.TerrainType));
+	}
 	public enum TerrainDataTypes
 	{
 		TerrainType
