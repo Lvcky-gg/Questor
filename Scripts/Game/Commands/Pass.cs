@@ -3,8 +3,8 @@ using System;
 
 public partial class Pass : Command
 {
-	public Pass()
+	public Pass(String CommandLabel)
 	{
-		
+		CommandLabel = "Pass";
 	}
 }
